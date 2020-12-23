@@ -1,0 +1,7 @@
+<h1> View all your Workouts here: </h1>
+
+<ul>
+  <%= @workouts.each do |w| %>
+    <li><%= link_to w.category, workout_path(w) %></li>
+  <% end %>
+</ul>

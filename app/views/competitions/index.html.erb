@@ -1,0 +1,7 @@
+<h1> View all your Competitions here: </h1>
+
+<ul>
+  <%= current_user.competitions do |w| %>
+    <li><%= link_to w.title, competition_path(w), method: :get %></li>
+  <% end %>
+</ul>

@@ -13,7 +13,21 @@
 
     <div> 
     
-    <%=link_to "Log Out", '/logout', method: :delete%>
+ 
+
+    <% if logged_in? %>
+    <nav class='navbar'>
+      <%= link_to 'Logout', '/logout', method: :delete, class:'button'%>
+      <%= link_to 'My Competitions', competitions_path , class:'button'%>
+      <%= link_to 'Add a Competition', new_competition_path , class:'button'%>
+      <%= link_to 'Add a Workout', new_workout_path , class:'button'%>
+      <%= link_to 'All Workouts', workouts_path, class:'button' %>
+      <%= link_to 'Add a Training Session', new_training_session_path, class:'button' %>
+      <%= link_to 'My Training Sessions', training_sessions_path, class:'button' %>
+    </nav>
+    <% else %>
+      <%= link_to 'Log In', login_path %>
+    <% end %>
     
     </div>  
 

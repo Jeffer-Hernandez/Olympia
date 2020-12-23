@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/signup' => 'users#new'
-  delete '/signup' => 'users#create'
+  post '/signup' => 'users#create'
 
 
   resources :workouts
-  resources :sessions
+  resources :training_sessions
   resources :competitions
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
