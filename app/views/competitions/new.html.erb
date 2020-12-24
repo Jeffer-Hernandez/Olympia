@@ -1,23 +1,7 @@
 <h1> Create a New Competition</h1>
 
-<%= form_for @competition do |f| %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= render partial: "layouts/errors", locals: { object: @competition } %>
 
-    <br> </br>
 
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-
-    <br> </br>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <br> </br>
-
-    <%= f.submit "Create" %>
-    
-
-<% end %>
+<%= render "form" %>
