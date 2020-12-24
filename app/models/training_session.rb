@@ -1,18 +1,24 @@
 class TrainingSession < ApplicationRecord
   belongs_to :competition
   belongs_to :workout
-  belongs_to :user
 
-  # accepts_nested_attributes_for :workout
+  scope :by_workout, -> (workout_id) {where("workout_id = ?", workout_id)}
 
-  # def workout_attributes=(workout_params)
-  #   workout = Workout.find_or_create_by(workout_params)
+  validates :date, presence: true
+  validates_associated :workout
 
-  #   if workout.valid?
-  #     self.workout = workout
-  #   end
+ 
 
-  # end
+
+
+  def datetime
+    self.date.strftime("%A, %b %d") if self.date
+    #self.date.try(:strftime, "%A, %b %d")
+  end
+
+  def username
+    @username ||= self.competition.try(:user).try(:username)
+  end
 
 
 end
