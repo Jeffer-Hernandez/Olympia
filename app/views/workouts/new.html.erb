@@ -2,14 +2,16 @@
 
 <%= form_for @workout do |f| %>
 
-    <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br></br>
 
+    <%= f.label :category %>
+    <%= f.select :category,options_for_select(["legs", "shoulders", "biceps", "triceps", "back", "chest", "abs"]), include_blank: true  %>
     <br> </br>
 
     <%= f.label :intensity %>
     <%= f.text_field :intensity %>
-
     <br> </br>
 
     <%= f.submit "Create" %>
