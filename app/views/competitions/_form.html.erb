@@ -1,0 +1,22 @@
+
+<%= form_for @competition do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <br> </br>
+
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+
+    <br> </br>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <br> </br>
+
+    <%= f.submit "Create" %>
+    
+
+<% end %>
