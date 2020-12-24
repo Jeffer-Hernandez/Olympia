@@ -16,12 +16,29 @@ class CompetitionsController < ApplicationController
     end
 
     def index
-        @competition = Competition.all
+        @competitions = current_user.competitions
     end
 
     def show
         @competition = Competition.find_by(id: params[:id])
     end
+
+    def edit
+        
+        @competition = Competition.find_by(id: params[:id])
+        
+    end
+
+    def update
+        @competition = Competition.find_by(id: params[:id])
+     
+        if @competition.update(competition_params)
+          redirect_to competition_path(@competition)
+        else
+          render :edit
+        end
+    end
+
 
     private
 
