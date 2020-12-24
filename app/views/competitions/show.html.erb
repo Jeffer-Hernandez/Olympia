@@ -1,7 +1,12 @@
 <h1>  <%=@competition.title%> </h1>
 
-<h1>  <%=@competition.category%> </h1>
-<h1>  <%=@competition.description%> </h1>
+<p><strong><%=@competition.category%> </p>
+<p><strong><%=@competition.description%> </p>
+
+
+
+<%= link_to "Edit Competition", edit_competition_path(@competition) %>
+
 
 
 
