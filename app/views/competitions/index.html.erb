@@ -1,7 +1,10 @@
 <h1> View all your Competitions here: </h1>
 
-<ul>
-  <%= current_user.competitions do |w| %>
-    <li><%= link_to w.title, competition_path(w), method: :get %></li>
-  <% end %>
-</ul>
+
+<% @competitions.each do |comp|%>
+  <div>
+    <h3><%= link_to comp.title, competition_path(comp) %> </h3>
+    <p>Category: <%= comp.category %> |
+    Description: <%= comp.description %> </p>
+  </div><br>
+<% end %>
