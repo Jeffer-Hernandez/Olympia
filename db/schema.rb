@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_235524) do
+ActiveRecord::Schema.define(version: 2020_12_23_195125) do
 
   create_table "competitions", force: :cascade do |t|
     t.string "title"
@@ -29,9 +29,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_235524) do
     t.integer "workout_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
     t.index ["competition_id"], name: "index_training_sessions_on_competition_id"
-    t.index ["user_id"], name: "index_training_sessions_on_user_id"
     t.index ["workout_id"], name: "index_training_sessions_on_workout_id"
   end
 
@@ -58,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_12_22_235524) do
 
   add_foreign_key "competitions", "users"
   add_foreign_key "training_sessions", "competitions"
-  add_foreign_key "training_sessions", "users"
   add_foreign_key "training_sessions", "workouts"
   add_foreign_key "workouts", "users"
 end
