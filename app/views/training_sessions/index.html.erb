@@ -1,8 +1,15 @@
 <h1> All of your Training Sessions: </h1>
 
-
 <ul>
-  <%= current_user.training_sessions.each do |t| %>
-    <li><%= link_to w.date, training_session_path(t) %></li>
-  <% end %>
+<% @training_sessions.order(:date).each do |t| %>
+  <li>
+  <%= t.username %> completed the
+    <%= link_to t.workout.name, workout_path(t.workout)%>
+    while training for the <%= link_to t.competition.title, competition_path(t.competition)%>
+    <%= display_date(t) %>
+    <%= display_condition(t) %>
+
+
+  </li><br>
+<% end %>
 </ul>
