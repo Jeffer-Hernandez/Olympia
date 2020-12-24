@@ -9,4 +9,12 @@ module TrainingSessionsHelper
         end
     end
 
+    def display_date(t)
+        "on #{t.datetime}" if t.date
+    end
+
+    def display_condition(t)
+        "and felt: #{t.condition}"  if !t.condition.empty?
+    end
+
 end
