@@ -17,4 +17,12 @@ module TrainingSessionsHelper
         "and felt: #{t.condition}"  if !t.condition.empty?
     end
 
+    def workout_form_option(form_builder)
+        if @workout
+           content_tag(:p, "Workout: #{@workout.name}")
+        else
+           render partial: "workoutform", locals: {f: form_builder}
+        end
+     end
+
 end
