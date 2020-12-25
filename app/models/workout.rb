@@ -5,7 +5,4 @@ class Workout < ApplicationRecord
 
   validates :name, :category, :intensity, presence: true
 
-  
-
-  
 end
