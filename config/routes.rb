@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/:provider/callback' => 'sessions#oauth_login'
+
   get '/competitions/:id/edit' => 'competitions#edit'
   post '/competitions/:id/edit' => 'competitions#update'
+
+
 
 
 
