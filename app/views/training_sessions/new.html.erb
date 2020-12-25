@@ -1,8 +1,8 @@
 <h1> Record a Training Session </h1>
 
-<%= render partial: "layouts/errors", locals: { object: @training } %>
+<%= render partial: "layouts/errors", locals: { object: @training_session } %>
 
-<%= form_for [@workout, @training_session] do |f| %>
+<%= form_for [@training_session] do |f| %>
 
     <%= f.label :date %>
     <%= f.date_field :date %>
