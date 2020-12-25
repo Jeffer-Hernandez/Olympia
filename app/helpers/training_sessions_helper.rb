@@ -1,4 +1,5 @@
 module TrainingSessionsHelper
+    
     def display_index_header
         if @workout
          content_tag(:h2,"Training Sessions for the  #{@workout.name} workout")
