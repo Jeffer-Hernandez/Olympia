@@ -5,34 +5,18 @@ class TrainingSessionsController < ApplicationController
     end
     
     def index
+        @training_sessions = TrainingSession.all
 
-        if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
-          @training_sessions = @workout.training_sessions
-
-        elsif params[:competition_id] && @competition = Competition.find_by_id(params[:competition_id])
-          @training_sessions = @competition.training_sessions
-        else
-
-          @training_sessions = TrainingSession.all
-        end
     end
     
     def new
-        if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
-          @training_session = @workout.training_sessions.build #has_many
-        else
-          @training_session = TrainingSession.new
-        end
+        @training_session = TrainingSession.new
+      
     end
     
     def create
-        
-        if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
-          @training_session = @workout.training_sessions.build(training_session_params)
-        else
-           
-          @training_session = TrainingSession.new(training_session_params)
-        end
+  
+        @training_session = TrainingSession.new(training_session_params)
         
         if @training_session.save
             
