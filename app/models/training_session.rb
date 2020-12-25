@@ -5,10 +5,6 @@ class TrainingSession < ApplicationRecord
   scope :by_workout, -> (workout_id) {where("workout_id = ?", workout_id)}
 
   validates :date, presence: true
-  validates_associated :workout
-
- 
-
 
 
   def datetime
