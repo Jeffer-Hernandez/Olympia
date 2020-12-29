@@ -3,3 +3,9 @@
 <h1> <%=@workout.category%> </h1>
 
 <h1> <%=@workout.intensity%> </h1>
+
+<%= link_to "workout/training_sessions",  workout_training_sessions_path(@workout) %>
+
+
+
+<%= link_to "New Training Session for this Workout", new_workout_training_session_path(@workout) %>
