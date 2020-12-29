@@ -5,14 +5,36 @@ class TrainingSessionsController < ApplicationController
     end
     
     def index
-        @training_sessions = TrainingSession.all
+
+        if params[:workout_id]
+            @training_sessions = Workout.find_by(id: params[:workout_id]).training_sessions
+       
+        else
+            @training_sessions = current_user.training_sessions
+        end
+    
+    end
+
+    def new
+
+        if params[:workout_id] 
+            @training_session = TrainingSession.new(workout_id: params[:workout_id])
+        else
+            @training_session = TrainingSession.new
+        end
 
     end
     
-    def new
-        @training_session = TrainingSession.new
+    # def new
+
+    #     if params[:workout_id]
+    #         @training_session = Workout.find_by(id: params[:workout_id])
+    #     else
+    #         @training_session = TrainingSession.new
+    #     end
+
       
-    end
+    # end
     
     def create
   
