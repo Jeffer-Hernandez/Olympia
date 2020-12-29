@@ -2,25 +2,4 @@
 
 <%= render partial: "layouts/errors", locals: { object: @training_session } %>
 
-<%= form_for [@training_session] do |f| %>
-
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-  
-    <%= f.label :condition %>
-    <%= f.text_field :condition %>
-  
-    <br></br>
-  
-    <%= f.label :competition_id %>
-    <%= f.collection_select :competition_id, current_user.competitions, :id, :title%>
-    <br></br>
-
-    <%= f.label :workout_id, "Select a workout:" %>
-    <%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true    %>
-    <br></br>
-
-    <%= f.submit%>
-  
-  
-  <% end %>
+<%= render "form" %>
