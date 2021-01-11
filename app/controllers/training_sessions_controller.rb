@@ -24,17 +24,7 @@ class TrainingSessionsController < ApplicationController
         end
 
     end
-    
-    # def new
 
-    #     if params[:workout_id]
-    #         @training_session = Workout.find_by(id: params[:workout_id])
-    #     else
-    #         @training_session = TrainingSession.new
-    #     end
-
-      
-    # end
     
     def create
   
